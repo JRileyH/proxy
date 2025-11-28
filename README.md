@@ -5,23 +5,21 @@ Automatic HTTPS reverse proxy for hosting multiple Docker apps on different subd
 ## Features
 
 - Automatic HTTPS with Let's Encrypt
-- Auto-discovery of Docker containers via labels
-- HTTP to HTTPS redirect
-- Multiple subdomains support
-- Simple docker-compose label configuration
+- Auto-discovery of Docker containers to host new projects on subdomains
+- Observability via Loki/Prometheus/Grafana
 
 ## Initial Setup
 
 ```bash
-# If it exists
-sudo rm -rf acme.json
-
+# SETUP SSH CRED STORAGE
 touch acme.json
 chmod 600 acme.json
 
+# SETUP ENV VAR
 touch .env
 nano .env # (Paste your key from .env.example)
 
+# SETUP DOCKER NETWORK / START
 docker network create 
 docker-compose up -d
 ```
