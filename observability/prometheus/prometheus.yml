@@ -1,0 +1,46 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    cluster: 'unlaunched-vps'
+    environment: 'production'
+
+# Alertmanager configuration (optional - uncomment if you add alertmanager)
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets:
+#           - alertmanager:9093
+
+scrape_configs:
+  # Prometheus self-monitoring
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Grafana metrics
+  - job_name: 'grafana'
+    static_configs:
+      - targets: ['grafana:3000']
+
+  # Loki metrics
+  - job_name: 'loki'
+    static_configs:
+      - targets: ['loki:3100']
+
+  # Alloy metrics
+  - job_name: 'alloy'
+    static_configs:
+      - targets: ['alloy:12345']
+
+  # Docker container metrics via cAdvisor (optional - add if needed)
+  # - job_name: 'cadvisor'
+  #   static_configs:
+  #     - targets: ['cadvisor:8080']
+
+  # Application metrics - apps should expose /metrics endpoint
+  # Applications send metrics to Alloy, which forwards to Prometheus
+  - job_name: 'app-metrics'
+    scrape_interval: 10s
+    static_configs:
+      - targets: []  # Alloy will handle service discovery
