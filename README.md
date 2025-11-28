@@ -1,5 +1,4 @@
-# Traefik Reverse Proxy with Auto SSL
-
+# Traefik Reverse Proxy
 Automatic HTTPS reverse proxy for hosting multiple Docker apps on different subdomains with automatic Let's Encrypt SSL certificates.
 
 ## Features
