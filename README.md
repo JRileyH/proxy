@@ -5,7 +5,6 @@ Automatic HTTPS reverse proxy for hosting multiple Docker apps on different subd
 
 - Automatic HTTPS with Let's Encrypt
 - Auto-discovery of Docker containers via labels
-- Observability via Loki/Prometheus/Grafana
 
 ## Initial Setup
 
